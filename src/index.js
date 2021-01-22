@@ -3,10 +3,33 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { CameraFeed } from './component/camera-feed';
+
+
+const uploadImage = async file => {
+  const formData = new FormData();
+  formData.append('file', file);
+
+  // Connect to a seaweedfs instance
+};
+
+function CameraCap() {
+  return (
+    <div className="CameraCap">
+      <h1 >Image capture test</h1>
+      <p id="msg">Click Spacebar to Start Microphone</p>
+      <CameraFeed sendFile={uploadImage} />
+    </div>
+  );
+}
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <div className="center">
+      <App />
+      <CameraCap />
+    </div>
+
   </React.StrictMode>,
   document.getElementById('root')
 );
