@@ -4,6 +4,7 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { CameraFeed } from './component/camera-feed';
+import WebcamStreamCapture from './Video';
 
 
 const uploadImage = async file => {
@@ -27,7 +28,7 @@ ReactDOM.render(
   <React.StrictMode>
     <div className="center">
       <App />
-      <CameraCap />
+      <WebcamStreamCapture/>
     </div>
 
   </React.StrictMode>,

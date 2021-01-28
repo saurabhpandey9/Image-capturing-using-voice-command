@@ -7,9 +7,9 @@ var flag = 1
 
 // Function to fire image capture button using id
 
-function capture_image_btn() {
-  document.getElementById("imgcap").click()
-}
+// function capture_image_btn() {
+//   document.getElementById("imgcap").click()
+// }
 
 
 const Speech = () => {
@@ -23,10 +23,22 @@ const Speech = () => {
 
   // Parshing required string to execute command
 
-  const n = transcript.search("capture image");
-  if (n !== -1) {
-    console.log("captured command matched");
-    document.getElementById("capture-image").click()
+  if (transcript.search("start capture")!== -1) {
+    console.log("start capture");
+    document.getElementById("msg").textContent = "Video Capturing Started";
+    document.getElementById("start captureee").click()
+    resetTranscript()
+  }
+  else if (transcript.search("stop capture")!==-1){
+    document.getElementById("msg").textContent = "Video Capturing Stopped";
+    document.getElementById("start captureee").click()
+    console.log("Stopeed capturing");
+    resetTranscript()
+
+  }
+  else if (transcript.search("download")!==-1){
+    document.getElementById("msg").textContent = "Video Downloaded";
+    document.getElementById("download").click()
     resetTranscript()
   }
 
@@ -55,11 +67,7 @@ const Speech = () => {
 
   return (
     <div>
-      {/* <button onClick={SpeechRecognition.startListening}>Start</button>
-      <button onClick={SpeechRecognition.stopListening}>Stop</button>
-      <button onClick={resetTranscript}>Reset</button> */}
       <p className="center">{transcript}</p>
-      <button id="capture-image" onClick={capture_image_btn}> Capture Image</button>
     </div>
   )
 }
