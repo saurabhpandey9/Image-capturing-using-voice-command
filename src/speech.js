@@ -39,7 +39,7 @@ const Speech = () => {
   
   else if (transcript.search("download")!==-1){
     document.getElementById("msg").textContent = "Video Downloaded";
-    if(document.getElementById()!==null){
+    if(document.getElementById("download")!==null){
       document.getElementById("download").click();
     }
     console.log("Video Downloaded");
