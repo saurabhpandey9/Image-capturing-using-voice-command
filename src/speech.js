@@ -36,6 +36,8 @@ const Speech = () => {
     resetTranscript()
 
   }
+
+  
   else if (transcript.search("download")!==-1){
     document.getElementById("msg").textContent = "Video Downloaded";
     document.getElementById("download").click()
